@@ -32,7 +32,7 @@ export default function Services() {
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                         Join hundreds of FUOYE students who are already earning
-                        daily. It's easier than you think!
+                        daily. It&apos;s easier than you think!
                     </p>
                 </div>
 
@@ -273,10 +273,10 @@ export default function Services() {
                 {/* Call to Action */}
                 <div className="text-center">
                     <div className="bg-white rounded-3xl p-12 shadow-2xl border border-gray-100 max-w-4xl mx-auto">
-                        <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                        <h3 className="text-[1.2rem] lg:text-3xl font-bold text-gray-900 mb-4">
                             Ready to start?
                         </h3>
-                        <p className="text-xl text-gray-600 mb-8">
+                        <p className="text-md lg:text-xl text-gray-600 mb-8">
                             Join Sell with Joji today and take charge of your
                             campus life.
                         </p>
@@ -288,7 +288,7 @@ export default function Services() {
                                         "_blank"
                                     )
                                 }
-                                className="bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] text-white px-8 py-4 rounded-xl text-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+                                className="bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] text-white px-8 py-4 rounded-xl text-md lg:text-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
                             >
                                 Join Sell with Joji Today
                                 <svg
@@ -305,7 +305,7 @@ export default function Services() {
                                     />
                                 </svg>
                             </button>
-                            <button className="border-2 border-[var(--color-accent)] text-[var(--color-accent)] px-8 py-4 rounded-xl text-lg font-semibold hover:bg-[var(--color-accent)] hover:text-white transition-all duration-300">
+                            <button className="border-2 border-[var(--color-accent)] text-[var(--color-accent)] px-8 py-4 rounded-xl text-md lg:text-lg font-semibold hover:bg-[var(--color-accent)] hover:text-white transition-all duration-300">
                                 Learn More
                             </button>
                         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,6 +9,27 @@ export default function Header() {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    // Close menu when clicking outside or pressing escape
+    useEffect(() => {
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+                setIsMenuOpen(false);
+            }
+        };
+
+        if (isMenuOpen) {
+            document.addEventListener("keydown", handleEscape);
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+
+        return () => {
+            document.removeEventListener("keydown", handleEscape);
+            document.body.style.overflow = "unset";
+        };
+    }, [isMenuOpen]);
 
     const scrollToSection = (sectionId: string) => {
         document
@@ -122,42 +143,94 @@ export default function Header() {
                         </button>
                         <button
                             onClick={toggleMenu}
-                            className="text-white p-2"
+                            className="text-white p-2 rounded-lg hover:bg-white/10 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/20"
                             aria-label="Toggle menu"
                         >
-                            <svg
-                                className="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
+                            <div className="w-6 h-6 flex flex-col justify-center items-center">
+                                <span
+                                    className={`block w-5 h-0.5 bg-white transition-all duration-300 ease-in-out ${
+                                        isMenuOpen
+                                            ? "rotate-45 translate-y-1"
+                                            : "-translate-y-1"
+                                    }`}
+                                />
+                                <span
+                                    className={`block w-5 h-0.5 bg-white transition-all duration-300 ease-in-out ${
+                                        isMenuOpen ? "opacity-0" : "opacity-100"
+                                    }`}
+                                />
+                                <span
+                                    className={`block w-5 h-0.5 bg-white transition-all duration-300 ease-in-out ${
+                                        isMenuOpen
+                                            ? "-rotate-45 -translate-y-1"
+                                            : "translate-y-1"
+                                    }`}
+                                />
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                {/* Mobile Navigation Menu */}
+                <div
+                    className={`lg:hidden fixed inset-0 z-50 ${
+                        isMenuOpen ? "block" : "hidden"
+                    }`}
+                >
+                    {/* Backdrop */}
+                    <div
+                        className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
+                            isMenuOpen ? "opacity-100" : "opacity-0"
+                        }`}
+                        onClick={() => setIsMenuOpen(false)}
+                    />
+
+                    {/* Slide Menu */}
+                    <div
+                        className={`absolute top-0 left-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${
+                            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+                        }`}
+                    >
+                        {/* Menu Header */}
+                        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                            <div className="flex items-center gap-2">
+                                <Image
+                                    src="/images/logo.webp"
+                                    alt="SellWithJoji"
+                                    className="w-8 h-8"
+                                    width={32}
+                                    height={32}
+                                />
+                                <p className="text-sm font-medium text-gray-800">
+                                    Joji Foods
+                                </p>
+                            </div>
+                            <button
+                                onClick={() => setIsMenuOpen(false)}
+                                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                                aria-label="Close menu"
                             >
-                                {isMenuOpen ? (
+                                <svg
+                                    className="w-5 h-5 text-gray-600"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth={2}
                                         d="M6 18L18 6M6 6l12 12"
                                     />
-                                ) : (
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M4 6h16M4 12h16M4 18h16"
-                                    />
-                                )}
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+                                </svg>
+                            </button>
+                        </div>
 
-                {/* Mobile Navigation Menu */}
-                {isMenuOpen && (
-                    <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg">
-                        <nav className="flex flex-col py-4">
+                        {/* Menu Items */}
+                        <nav className="py-4">
                             <a
                                 href="#about"
-                                className="px-6 py-3 text-gray-800 hover:bg-gray-100 transition-colors"
+                                className="block px-6 py-4 text-gray-800 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-blue-500"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     scrollToSection("about");
@@ -167,7 +240,7 @@ export default function Header() {
                             </a>
                             <a
                                 href="#features"
-                                className="px-6 py-3 text-gray-800 hover:bg-gray-100 transition-colors"
+                                className="block px-6 py-4 text-gray-800 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-blue-500"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     scrollToSection("features");
@@ -177,7 +250,7 @@ export default function Header() {
                             </a>
                             <a
                                 href="#services"
-                                className="px-6 py-3 text-gray-800 hover:bg-gray-100 transition-colors"
+                                className="block px-6 py-4 text-gray-800 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-blue-500"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     scrollToSection("services");
@@ -187,7 +260,7 @@ export default function Header() {
                             </a>
                             <a
                                 href="#stats"
-                                className="px-6 py-3 text-gray-800 hover:bg-gray-100 transition-colors"
+                                className="block px-6 py-4 text-gray-800 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-blue-500"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     scrollToSection("stats");
@@ -196,8 +269,37 @@ export default function Header() {
                                 Success Stories
                             </a>
                         </nav>
+
+                        {/* Menu Footer */}
+                        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-200">
+                            <button
+                                onClick={() => {
+                                    window.open(
+                                        "https://docs.google.com/forms/d/e/1FAIpQLSfT1B8HymRS1CCEveSLe_j5IanAtE4VuKoV8-BZW8PM8ntT8w/viewform",
+                                        "_blank"
+                                    );
+                                    setIsMenuOpen(false);
+                                }}
+                                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+                            >
+                                Join Now
+                                <svg
+                                    className="w-4 h-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M9 5l7 7-7 7"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
-                )}
+                </div>
             </div>
         </header>
     );

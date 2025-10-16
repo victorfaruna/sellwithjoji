@@ -9,26 +9,18 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/30"></div>
 
             {/* Content */}
-            <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div className="relative z-1 text-center text-white px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
                 {/* Main Heading */}
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
-                    <span className="block sm:inline">Sell with J</span>
-                    <Image
-                        src="/images/logo.webp"
-                        alt="Joji Foods"
-                        width={100}
-                        height={100}
-                        className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 inline-block mx-2 sm:mx-3"
-                    />
-                    <span className="block sm:inline">ji</span>
-                    <br className="sm:hidden" />
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:w-[500px] mx-auto text-center font-bold mb-4 sm:mb-6 leading-none">
+                    <span className="block sm:inline">Sell with Joji </span>
+
                     <span className="block sm:inline mt-2 sm:mt-0">
                         Earn daily. Stay in control.
                     </span>
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-4xl mx-auto leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl  mb-6 sm:mb-8 text-white/90 max-w-4xl mx-auto leading-relaxed">
                     Join other students turning their love for snacks into daily
                     income.
                 </p>
@@ -41,7 +33,7 @@ export default function Hero() {
                             "_blank"
                         )
                     }
-                    className="bg-white/90 text-black px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-lg text-sm sm:text-base md:text-lg font-semibold tracking-wide hover:bg-white hover:scale-105 transition-all duration-300 mb-8 sm:mb-12 flex items-center gap-2 mx-auto"
+                    className="bg-white/90 text-black px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-lg text-sm sm:text-base tracking-wide hover:bg-white hover:scale-105 transition-all duration-300 mb-8 sm:mb-12 flex items-center gap-2 mx-auto"
                 >
                     Start Your Journey
                     <svg

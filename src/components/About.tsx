@@ -21,11 +21,11 @@ export default function About() {
                         {"  "}
                         <span>What is Sell with Joji?</span>
                     </p>
-                    <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                    <p className="text-[14px] lg:text-lg text-gray-700 leading-relaxed mb-6">
                         Sell with Joji is a student-powered initiative by Joji
                         Foods.
                     </p>
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                    <p className="text-[14px] lg:text-lg text-gray-700 leading-relaxed">
                         We help students at FUOYE earn daily by selling fresh
                         pastries like meatpies, chinchin, and egg rolls, all at
                         discounted rates.

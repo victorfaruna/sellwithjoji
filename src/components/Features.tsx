@@ -8,10 +8,10 @@ export default function Features() {
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-[1.2rem] lg:text-4xl font-bold text-gray-900 mb-4">
                         Why students love Sell with Joji
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-md lg:text-xl text-gray-600 max-w-2xl mx-auto">
                         Join hundreds of FUOYE students who are already earning
                         daily while staying focused on their studies
                     </p>
@@ -167,8 +167,8 @@ export default function Features() {
                                 </div>
                             </div>
                             <p className="text-gray-700 italic">
-                                "I earn ₦15,000 weekly just selling to my
-                                classmates. It's so easy!"
+                                &ldquo;I earn ₦15,000 weekly just selling to my
+                                classmates. It&apos;s so easy!&rdquo;
                             </p>
                         </div>
 
@@ -187,8 +187,8 @@ export default function Features() {
                                 </div>
                             </div>
                             <p className="text-gray-700 italic">
-                                "Perfect for my schedule. I sell during breaks
-                                and earn daily."
+                                &ldquo;Perfect for my schedule. I sell during
+                                breaks and earn daily.&rdquo;
                             </p>
                         </div>
 
@@ -207,8 +207,8 @@ export default function Features() {
                                 </div>
                             </div>
                             <p className="text-gray-700 italic">
-                                "My friends love the fresh pastries. Great
-                                business opportunity!"
+                                &ldquo;My friends love the fresh pastries. Great
+                                business opportunity!&rdquo;
                             </p>
                         </div>
                     </div>
